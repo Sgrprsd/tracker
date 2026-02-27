@@ -1,8 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "";
-
 async function request(endpoint, options = {}) {
-  const url = `${BASE_URL}${endpoint}`;
-
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +7,7 @@ async function request(endpoint, options = {}) {
     ...options,
   };
 
-  const res = await fetch(url, config);
+  const res = await fetch(endpoint, config);
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));
