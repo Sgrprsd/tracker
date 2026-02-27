@@ -1,0 +1,160 @@
+.kanban {
+  display: flex;
+  gap: var(--space-4);
+  min-height: calc(100vh - 180px);
+  padding-bottom: var(--space-4);
+  overflow-x: auto;
+}
+
+/* ─── Column ─────────────────────────────────────── */
+.column {
+  min-width: 280px;
+  max-width: 320px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-primary);
+  overflow: hidden;
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.columnCount {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  min-width: 24px;
+  text-align: center;
+}
+
+/* ─── Drop Zone ──────────────────────────────────── */
+.dropZone {
+  flex: 1;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 100px;
+  transition: background var(--transition-fast);
+}
+
+.dropZoneHighlight {
+  background: var(--accent-primary-glow);
+  outline: 2px dashed var(--accent-primary);
+  outline-offset: -2px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.emptyColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  flex: 1;
+}
+
+.emptyIcon {
+  font-size: 2rem;
+  margin-bottom: var(--space-2);
+  opacity: 0.3;
+}
+
+.emptyText {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* ─── Loading ────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.loadingSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-primary);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: var(--space-3);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Error ──────────────────────────────────────── */
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  color: var(--danger);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .kanban {
+    gap: var(--space-3);
+    min-height: auto;
+    padding-bottom: var(--space-6);
+  }
+
+  .column {
+    min-width: 240px;
+    max-width: 260px;
+  }
+
+  .columnHeader {
+    padding: var(--space-3);
+  }
+
+  .emptyColumn {
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .column {
+    min-width: 220px;
+    max-width: 240px;
+  }
+}

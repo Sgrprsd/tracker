@@ -1,0 +1,106 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary) 25%,
+    var(--bg-card-hover) 50%,
+    var(--bg-tertiary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeletonText {
+  composes: skeleton;
+  height: 14px;
+  margin-bottom: var(--space-2);
+}
+
+.skeletonTitle {
+  composes: skeleton;
+  height: 20px;
+  width: 60%;
+  margin-bottom: var(--space-3);
+}
+
+.skeletonCard {
+  composes: skeleton;
+  height: 120px;
+  border-radius: var(--radius-lg);
+}
+
+.skeletonStatCard {
+  composes: skeleton;
+  height: 110px;
+  border-radius: var(--radius-lg);
+}
+
+.skeletonChart {
+  composes: skeleton;
+  height: 320px;
+  border-radius: var(--radius-lg);
+}
+
+/* ─── Kanban Skeleton ────────────────────────────── */
+.kanbanSkeleton {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.columnSkeleton {
+  min-width: 280px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.columnHeaderSkeleton {
+  composes: skeleton;
+  height: 48px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* ─── Dashboard Skeleton ─────────────────────────── */
+.dashSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.statsRowSkeleton {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.chartsRowSkeleton {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 1024px) {
+  .statsRowSkeleton {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .statsRowSkeleton {
+    grid-template-columns: 1fr;
+  }
+
+  .chartsRowSkeleton {
+    grid-template-columns: 1fr;
+  }
+}
